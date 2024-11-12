@@ -6,8 +6,6 @@ secondaryBackgroundColor = "#cce8f0"
 textColor = "#002f4f"
 font = "sans serif"
 
-import streamlit as st
-
 # Set up page title and layout
 st.set_page_config(page_title="Health and Wellness App", page_icon="🌱", layout="wide")
 
