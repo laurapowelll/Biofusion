@@ -1,82 +1,108 @@
+# .streamlit/config.toml
+
+[theme]
+primaryColor = "#4ba3c7"
+backgroundColor = "#eaf6fb"
+secondaryBackgroundColor = "#cce8f0"
+textColor = "#002f4f"
+font = "sans serif"
+
 import streamlit as st
 
 # Set up page title and layout
-st.set_page_config(page_title="Health and Wellness App", layout="wide")
+st.set_page_config(page_title="Health and Wellness App", page_icon="🌱", layout="wide")
 
-# Sidebar navigation
-st.sidebar.title("Navigation")
-tabs = st.sidebar.radio("Select a Tab:", ["Diet", "Exercise", "Wellness", "Health"])
+# Sidebar navigation with emojis and title
+st.sidebar.title("🌟 Navigation")
+tabs = st.sidebar.radio("Select a Tab:", ["🥗 Diet", "🏋️ Exercise", "🧘 Wellness", "💖 Health"])
+
+# Moving graphic (replace with an actual GIF file path or URL)
+moving_graphic_url = "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"  # Example GIF URL
+st.sidebar.image(moving_graphic_url, caption="Stay Active!", use_column_width=True)
 
 # Diet Tab
-if tabs == "Diet":
-    st.title("Diet")
+if tabs == "🥗 Diet":
+    st.title("🥗 Diet Tracker")
     
-    # Subsections
-    st.header("Diet Goals")
+    # Moving graphic for Diet section
+    st.image(moving_graphic_url, width=200)
+    
+    # Subsections with emojis and fields
+    st.header("🎯 Diet Goals")
     st.text_input("Enter your diet goals", key="diet_goals")
     
-    st.header("Calorie Counting")
+    st.header("🍏 Calorie Counting")
     st.number_input("Daily Calorie Goal", min_value=0, step=50, key="calorie_goal")
     
-    st.header("Meal Ideas")
+    st.header("📋 Meal Ideas")
     st.text_area("Add meal ideas or recipes", key="meal_ideas")
     
-    # Other diet-related features
-    st.header("Additional Features")
+    # Additional diet features
+    st.header("⚙️ Additional Features")
     st.checkbox("Track macros")
     st.checkbox("Track hydration")
 
 # Exercise Tab
-elif tabs == "Exercise":
-    st.title("Exercise")
+elif tabs == "🏋️ Exercise":
+    st.title("🏋️ Exercise Tracker")
     
-    # Subsections
-    st.header("Workout Goals")
+    # Moving graphic for Exercise section
+    st.image(moving_graphic_url, width=200)
+    
+    # Subsections with emojis and fields
+    st.header("🎯 Workout Goals")
     st.text_input("Enter your workout goals", key="workout_goals")
     
-    st.header("Calories Burned")
+    st.header("🔥 Calories Burned")
     st.number_input("Enter calories burned per workout", min_value=0, step=10, key="calories_burned")
     
-    st.header("Workout Examples")
+    st.header("💪 Workout Examples")
     st.selectbox("Select a workout type", ["Running", "Cycling", "Weightlifting", "Yoga"])
     
-    st.header("Exercise Tracking")
+    st.header("📈 Exercise Tracking")
     st.number_input("Miles Ran", min_value=0.0, step=0.1, key="miles_ran")
 
 # Wellness Tab
-elif tabs == "Wellness":
-    st.title("Wellness")
+elif tabs == "🧘 Wellness":
+    st.title("🧘 Wellness Hub")
     
-    # Subsections
-    st.header("Mental Health")
+    # Moving graphic for Wellness section
+    st.image(moving_graphic_url, width=200)
+    
+    # Subsections with emojis and fields
+    st.header("🧠 Mental Health")
     st.text_area("Write down your thoughts")
     
-    st.header("Positive Messages of Encouragement")
+    st.header("💌 Positive Messages of Encouragement")
     st.text("Remember: Progress is progress, no matter how small!")
     
-    st.header("Breathing Relaxation")
+    st.header("🌬️ Breathing Relaxation")
     if st.button("Start Breathing Exercise"):
         st.write("Breathe in... Breathe out...")
 
 # Health Tab
-elif tabs == "Health":
-    st.title("Health")
+elif tabs == "💖 Health":
+    st.title("💖 Health Overview")
     
-    # Subsections
-    st.header("Import Health Records")
+    # Moving graphic for Health section
+    st.image(moving_graphic_url, width=200)
+    
+    # Subsections with emojis and fields
+    st.header("📄 Import Health Records")
     st.file_uploader("Upload health record file", type=["pdf", "txt", "csv"])
     
-    st.header("Allergies and Dietary Restrictions")
+    st.header("🚫 Allergies and Dietary Restrictions")
     st.text_input("List any allergies or dietary restrictions", key="allergies")
     
-    st.header("Conditions")
+    st.header("🩺 Conditions")
     st.text_input("Enter any health conditions to adjust diet and exercise")
     
-    st.header("Period Tracker")
+    st.header("📅 Period Tracker")
     st.date_input("Last menstrual period start date")
     
-    st.header("Personal Health Tracking")
+    st.header("📈 Personal Health Tracking")
     st.text_input("Track personal health matters")
 
-# Footer
+# Footer section
 st.sidebar.write("Health and Wellness App © 2024")
+
