@@ -15,7 +15,6 @@ tabs = st.sidebar.radio("Select a Tab:", ["🥗 Diet", "🏋️ Exercise", "🧘
 
 # Moving graphic (replace with an actual GIF file path or URL)
 moving_graphic_url = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjR0MXdiN3dnb2R0b2Rxb3Azdnhjb2pxeXd1amkxNmo1YTY1MTQ5ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Pu4gYo3wjgnucHTpM7/giphy.gif"  # Example GIF URL
-st.sidebar.image(moving_graphic_url, caption="Stay Active!", use_column_width=True)
 
 # Diet Tab
 if tabs == "🥗 Diet":
