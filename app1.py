@@ -14,7 +14,7 @@ st.sidebar.title("🌟 Navigation")
 tabs = st.sidebar.radio("Select a Tab:", ["🥗 Diet", "🏋️ Exercise", "🧘 Wellness", "💖 Health"])
 
 # Moving graphic (replace with an actual GIF file path or URL)
-moving_graphic_url = "https://www.google.com/search?sca_esv=639d025745a98286&q=fitness+gifs&udm=2&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3JyWp6w6_rxLPe8F8fpm5a57iruiBaetC-P1z8A1EgSEtGoKiI-tyuuiDuAjQZN76zQqJViCdF78ZMNlQqovfNwuIqqo1RsVD9GtUqCzkz0DVUQ4z-CimdBJ3tn6agrsB0C0fnR33H6lfurv4ZfC2xlrkF2CyxrCbQL4FaLHuYaKtlILmFg&sa=X&ved=2ahUKEwjO2NXhkNeJAxXFEFkFHXe9I0MQtKgLegQIFBAB&biw=1199&bih=828&dpr=2#vhid=6YrhF2FB9Dic5M&vssid=mosaic"  # Example GIF URL
+moving_graphic_url = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjR0MXdiN3dnb2R0b2Rxb3Azdnhjb2pxeXd1amkxNmo1YTY1MTQ5ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Pu4gYo3wjgnucHTpM7/giphy.gif"  # Example GIF URL
 st.sidebar.image(moving_graphic_url, caption="Stay Active!", use_column_width=True)
 
 # Diet Tab
