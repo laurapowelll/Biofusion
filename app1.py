@@ -105,11 +105,6 @@ if app_mode == "💳 Pricing":
                         st.write(f"**Apple Pay Email**: {apple_pay_email}")
                 else:
                     st.error("Please fill in all required fields.")
-        
-    st.markdown("""
-    <div style="text-align:center; padding: 20px; font-size: 14px;">
-    </div>
-    """, unsafe_allow_html=True)
     
 # Date in Sidebar
 st.sidebar.write("### 📅 Current Date")
