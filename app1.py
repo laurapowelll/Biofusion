@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
-from datetime import date, timedelta
-import plotly.express as px
+import numpy as np
+from datetime import datetime, date
 
-# CSS styling
+# CSS styling for improved visuals
 st.markdown("""
     <style>
         .main {background-color: #f0f2f6;} /* Light gray background for main content */
@@ -22,173 +22,204 @@ st.markdown("""
             text-align: center;
             font-weight: bold;
         }
-        .info-box {
-            background-color: #f1f8e9;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
+        .stButton>button {
+            background-color: #2196F3;
+            color: white;
             font-size: 16px;
-        }
-        .goal-section {
-            background-color: #d3e5ff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        .card {
-            background-color: #ffffff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# App Title and Description
-st.title("🌱 BiYourFusion Health App")
-st.write("""
-Welcome to your personal health and wellness app. Track your health goals, fitness, menstrual cycle, nutrition, and immunization records all in one place.
-""")
+# Set up the app title and description with emojis
+st.title("🌱 **BiYourFusion Mobile Health App**")
+st.write("Welcome to your personal health and wellness management app. Track your daily health insights, set goals, monitor your progress, and store your health records.")
 
-# Sidebar for navigation
+# Sidebar for navigation with emojis and options
 st.sidebar.title("🌐 Navigation")
 app_mode = st.sidebar.selectbox("Choose a section", [
-    "Home", "WhyBiyourFusion", "Log Health Metrics", "Log Menstrual Cycle", 
-    "Fitness & Exercise", "View Dashboard", "Set Goals", "Health Records", "Immunization Records", 
-    "Terms of Service and Privacy Policy"
+    "🏠 Home", "❓ Why BiYourFusion?", "📊 Log Health Metrics", "🌸 Log Menstrual Cycle", 
+    "🏋️‍♂️ Fitness & Exercise", "📈 View Dashboard", "🎯 Set Goals", "📝 Health Records", "💉 Immunization Records", 
+    "📜 Terms of Service and Privacy Policy"
 ])
 
-# Current Date Display
+# Date in Sidebar
 st.sidebar.write("### 📅 Current Date")
 st.sidebar.write(date.today())
 
-# Helper function for introducing the app
-def show_intro():
-    st.title("WhyBiyourFusion 🌟")
-    st.markdown("""
-        **BiyourFusion** is your ultimate health and wellness app, designed to help you track everything in one place. We offer features from fitness tracking, menstrual cycle logging, health records, to personalized wellness goals. Here's how we compare to other apps:
-
-        ### Key Features:
-        - **Health Goals**: Set and track goals for weight, calories, macronutrients, and more.
-        - **Menstrual Cycle Tracking**: Log cycle phases, ovulation, contraception, and receive cycle tips.
-        - **Fitness & Exercise**: Log workouts, track calories burned, access workout videos, and receive fitness plans.
-        - **Health Records**: Keep a history of your health records and share them with your doctor.
-
-        Our app simplifies your health management, providing you with personalized feedback and suggestions.
-    """)
-
-# Home Page with key metrics and tiles
-if app_mode == "Home":
+# Home Page with tiles (showing quick health data)
+if app_mode == "🏠 Home":
     st.subheader("Welcome to your Health Dashboard")
-    st.write("Track your health metrics here and monitor your progress.")
+    st.write("Use this app to log daily health metrics and track your progress over time.")
     
-    st.markdown("""
-    <div class="tile">🚶 Steps Today: 0</div>
-    <div class="tile">💧 Water Intake: 0 oz</div>
-    <div class="tile">💤 Sleep: 0 hrs</div>
+    # Create a row of tiles for key metrics (dummy values for now)
+    st.markdown(f"""
+    <div class="tile">🚶 Steps Today: 5000</div>
+    <div class="tile">💧 Water Intake: 60 oz</div>
+    <div class="tile">💤 Sleep: 7 hrs</div>
     """, unsafe_allow_html=True)
 
-    st.write("### Daily Health Overview")
-    st.write("Track your daily goals and metrics. You can log your steps, water intake, and sleep hours to stay on top of your health.")
-
-# Log Health Metrics Page with icons and style improvements
-elif app_mode == "Log Health Metrics":
-    st.subheader("Log Your Health Metrics 🩺")
-
-    steps = st.number_input("Steps Walked Today", min_value=0, max_value=50000, step=100, label_visibility="collapsed")
+# Log Health Metrics Page with icons and styles
+elif app_mode == "📊 Log Health Metrics":
+    st.subheader("Log Daily Health Metrics 🩺")
+    
+    steps = st.number_input("Steps Walked Today", min_value=0, max_value=50000, step=100)
     sleep = st.number_input("Hours of Sleep", min_value=0.0, max_value=24.0, step=0.5)
     water_intake = st.number_input("Water Intake (oz)", min_value=0, max_value=300, step=1)
-
-    st.button("Save Entry", key="save_health_metrics")
     
     if st.button("Save Entry"):
-        st.success("Health metrics logged successfully!")
-        # Save this data in a more complex system (like database or in-memory for real-time tracking)
-    
-    st.markdown(f"**📊 Health Insights**")
-    st.write("Monitor your health with graphs and trends over time. Here's a simple trend chart for your steps today:")
-    
-    # Example graph for steps:
-    df = pd.DataFrame({"Date": [date.today()], "Steps": [steps]})
-    st.line_chart(df.set_index("Date"))
+        st.success("Health metrics logged successfully! 🎉")
 
-# Log Menstrual Cycle Page with deeper functionality
-elif app_mode == "Log Menstrual Cycle":
-    st.subheader("Log Your Menstrual Cycle 🌸")
-
-    cycle_start = st.date_input("Cycle Start Date")
-    cycle_end = st.date_input("Cycle End Date", min_value=cycle_start)
+# Log Menstrual Cycle Page with emojis and additional helpful info
+elif app_mode == "🌸 Log Menstrual Cycle":
+    st.subheader("Log Menstrual Cycle 🌸")
+    
+    # Cycle tracking inputs
+    st.write("### Menstrual Cycle Details")
+    cycle_start = st.date_input("Start Date")
+    cycle_end = st.date_input("End Date", min_value=cycle_start)
     cycle_length = (cycle_end - cycle_start).days
     st.write(f"Cycle Length: {cycle_length} days")
     
+    # Ovulation tracking
+    st.write("### Ovulation Tracking")
     ovulation_date = st.date_input("Ovulation Date (estimated)", min_value=cycle_start, max_value=cycle_end)
-
-    contraceptive_type = st.selectbox("Contraceptive Method", [
-        "None", "Birth Control Pill", "IUD", "Condom", "Natural Rhythm", "Other"
-    ])
-    contraceptive_notes = st.text_area("Additional Notes (Optional)")
-
-    trying_to_conceive = st.radio("Trying to Conceive?", ["Yes", "No"])
-    had_unprotected_sex = st.radio("Had Unprotected Sex?", ["Yes", "No"])
+    st.write(f"Estimated Ovulation Date: {ovulation_date}")
     
     # Save button
     if st.button("Save Cycle Data"):
-        st.success("Menstrual cycle data saved!")
-        st.write(f"Cycle Start: {cycle_start}, Cycle End: {cycle_end}, Ovulation Date: {ovulation_date}")
+        st.success("Menstrual cycle data logged successfully! 🎉")
+        st.write("### Summary of Recorded Data")
+        st.write(f"- Cycle Start Date: {cycle_start}")
+        st.write(f"- Cycle End Date: {cycle_end}")
+        st.write(f"- Cycle Length: {cycle_length} days")
+        st.write(f"- Estimated Ovulation Date: {ovulation_date}")
+    
+    # Menstrual phase tips with a friendly tone
+    st.write("### Tips for Each Phase of the Menstrual Cycle 🌸")
+    phase = st.radio("Select a Cycle Phase to Learn More", [
+        "Menstrual Phase", "Follicular Phase", "Ovulation Phase", "Luteal Phase"
+    ])
 
-    st.markdown("""
-        ### Tips for Each Phase
-        Learn more about what to eat, how to exercise, and mental wellness during different phases of your cycle.
+    if phase == "Menstrual Phase":
+        st.write("""
+        **Tips during your period:**
+        - **Foods to Indulge In:** Iron-rich foods (spinach, lentils), magnesium-rich foods (dark chocolate, nuts).
+        - **Foods to Avoid:** Processed foods, caffeine, and alcohol.
+        - **Exercises to Try:** Light yoga, walking, or stretching.
+        - **Other Tips:** Use heating pads for cramps and prioritize hydration.
+        """)
+
+# Fitness & Exercise Page with icons
+elif app_mode == "🏋️‍♂️ Fitness & Exercise":
+    st.subheader("Fitness & Exercise 🏋️‍♂️")
+
+    # Section 1: Log Exercises
+    st.write("### Log Your Exercises 🏃")
+    exercise_type = st.text_input("Type of Exercise (e.g., running, yoga, weightlifting)")
+    duration = st.number_input("Duration (minutes)", min_value=0, step=1)
+    calories_burned = st.number_input("Estimated Calories Burned", min_value=0, step=1)
+
+    if st.button("Save Exercise"):
+        st.success("Exercise logged successfully! 💪")
+        st.write(f"**Exercise Type:** {exercise_type}")
+        st.write(f"**Duration:** {duration} minutes")
+        st.write(f"**Calories Burned:** {calories_burned}")
+    
+    # Section 3: Activity Trends (bar chart)
+    st.write("### Track Your Activity Trends 📊")
+    steps = st.slider("Steps Taken Today", 0, 20000, step=100)
+    standing_time = st.slider("Standing Time (hours)", 0, 24, step=1)
+    distance = st.slider("Distance Traveled (miles)", 0.0, 10.0, step=0.1)
+
+    # Display trends using Streamlit's bar chart
+    activity_data = pd.DataFrame({
+        "Metric": ["Steps", "Standing Hours", "Distance (miles)"],
+        "Value": [steps, standing_time, distance]
+    })
+    st.bar_chart(activity_data.set_index("Metric"))
+
+    # Section 4: Personalized Activity Plans
+    st.write("### Personalized Activity Plans 📅")
+    custom_plan_name = st.text_input("Name Your Plan")
+    weekly_goal = st.slider("Weekly Goal (hours)", 0, 20, step=1)
+    
+    if st.button("Create Plan"):
+        st.success(f"Your plan '{custom_plan_name}' has been created! 🎯")
+        st.write(f"**Weekly Goal:** {weekly_goal} hours")
+        st.write("Keep pushing towards your goal!")
+
+# View Dashboard Page with line chart
+elif app_mode == "📈 View Dashboard":
+    st.subheader("Health Dashboard 📊")
+    st.write("View your health metrics over time.")
+    
+    # Sample data for health metrics
+    df = pd.DataFrame({
+        "Date": pd.date_range(start="2023-01-01", periods=10, freq="D"),
+        "Steps": np.random.randint(1000, 10000, 10),
+        "Sleep (hrs)": np.random.uniform(5, 9, 10),
+        "Water Intake (oz)": np.random.randint(30, 100, 10),
+        "Calories Consumed": np.random.randint(1500, 2500, 10),
+    })
+    
+    # Display a line chart with Streamlit's built-in charting functions
+    st.line_chart(df.set_index("Date")[["Steps", "Sleep (hrs)", "Water Intake (oz)"]])
+
+# Set Goals Page with icons (continued)
+elif app_mode == "🎯 Set Goals":
+    st.subheader("Set Health Goals 🎯")
+    current_weight = st.number_input("Current Weight (lbs)", min_value=50, max_value=500, step=1)
+    ideal_weight = st.number_input("Ideal Weight (lbs)", min_value=50, max_value=500, step=1)
+    height = st.number_input("Height (inches)", min_value=36, max_value=96, step=1)
+
+    if st.button("Save Goals"):
+        st.success("Your health goals have been saved successfully! 🎯")
+        st.write(f"**Current Weight:** {current_weight} lbs")
+        st.write(f"**Ideal Weight:** {ideal_weight} lbs")
+        st.write(f"**Height:** {height} inches")
+
+# Health Records Page with icons
+elif app_mode == "📝 Health Records":
+    st.subheader("Log Health Records 📋")
+    conditions = st.text_area("Existing Health Conditions", placeholder="e.g., Diabetes, Hypertension")
+    allergies = st.text_area("Known Allergies", placeholder="e.g., Pollen, Nuts")
+    
+    if st.button("Save Health Records"):
+        st.success("Health records saved successfully! 📝")
+        st.write(f"**Health Conditions:** {conditions}")
+        st.write(f"**Allergies:** {allergies}")
+
+# Immunization Records Page with icons
+elif app_mode == "💉 Immunization Records":
+    st.subheader("Log Immunization Records 💉")
+    vaccine_name = st.text_input("Vaccine Name", placeholder="e.g., COVID-19, Flu")
+    date_received = st.date_input("Date of Immunization", max_value=date.today())
+    next_dose = st.date_input("Next Dose (if applicable)", min_value=date_received)
+    
+    if st.button("Save Immunization Record"):
+        st.success("Immunization record saved successfully! 💉")
+        st.write(f"**Vaccine Name:** {vaccine_name}")
+        st.write(f"**Date Received:** {date_received}")
+        st.write(f"**Next Dose:** {next_dose}")
+
+# Terms of Service and Privacy Policy Page with emoji
+elif app_mode == "📜 Terms of Service and Privacy Policy":
+    st.subheader("Terms of Service and Privacy Policy 📜")
+    st.write("""
+    **Privacy Policy:**
+    - Your health data is confidential and not shared without your consent.
+    - You can delete your account at any time, and your data will be permanently removed.
+
+    **Terms of Service:**
+    - By using this app, you agree to our terms and conditions.
+    - We are not responsible for any medical advice, diagnosis, or treatment.
     """)
 
-    phase = st.radio("Select a Phase", ["Menstrual", "Follicular", "Ovulation", "Luteal"])
-    if phase == "Menstrual":
-        st.write("""
-        **During Your Period**:
-        - Eat Iron-rich foods (spinach, lentils), avoid caffeine and processed foods.
-        - Gentle exercise like walking, yoga is recommended.
-        """)
-    elif phase == "Follicular":
-        st.write("""
-        **Follicular Phase**:
-        - Great time to boost productivity and tackle creative projects.
-        - Include protein-rich foods and engage in intense exercise like running or HIIT.
-        """)
-    elif phase == "Ovulation":
-        st.write("""
-        **Ovulation Phase**:
-        - Antioxidants (berries, leafy greens) will help boost energy.
-        - High-intensity workouts like HIIT are recommended.
-        """)
-    elif phase == "Luteal":
-        st.write("""
-        **Luteal Phase**:
-        - Complex carbs and omega-3s are great for mood regulation.
-        - Engage in low-intensity workouts, mindfulness, and stretching.
-        """)
-
-# Fitness & Exercise Page with deeper features
-elif app_mode == "Fitness & Exercise":
-    st.subheader("Log Your Fitness & Exercises 🏋️‍♂️")
-
-    st.write("### Log Your Daily Workouts")
-    exercise_type = st.text_input("Type of Exercise (e.g., Yoga, Running)")
-    duration = st.number_input("Duration (minutes)", min_value=1, max_value=240, step=1)
-    calories_burned = st.number_input("Calories Burned", min_value=0, step=10)
-    
-    if st.button("Save Exercise"):
-        st.success(f"Your {exercise_type} workout has been saved!")
-        st.write(f"Duration: {duration} minutes, Calories Burned: {calories_burned} kcal")
-
-   # Exercise Trend Graphs
-st.write("### View Exercise Trends")
-df = pd.DataFrame({
-    "Date": [date.today()],
-    "Calories Burned": [calories_burned],
-    "Exercise Duration (min)": [duration]
-})
-
-# Properly closing the parentheses for line_chart function
-st.line_chart(df.set_index("Date"))
-
+# Add a footer with friendly reminder
+st.markdown("""
+    <div style="text-align:center; padding: 20px; font-size: 14px;">
+        🌱 **BiYourFusion** - A holistic approach to health management! Stay healthy, stay happy! 😊
+    </div>
+""", unsafe_allow_html=True)
