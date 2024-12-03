@@ -255,7 +255,7 @@ elif app_mode == "💉 Immunization Records":
     st.table(sample_records)
 
 # Terms of Service and Privacy Policy
-elif app_mode == "Terms of Service and Privacy Policy":
+elif app_mode == "📜 Terms of Service and Privacy Policy":
     st.subheader("Terms of Service 📜")
     st.write("""
     By using this app, you agree to abide by the terms and conditions outlined below. These terms govern your use of the application and the services provided.
