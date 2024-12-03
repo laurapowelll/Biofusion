@@ -65,7 +65,7 @@ st.sidebar.write(date.today())
 # App Title and Description
 st.title("🌱 BiYourFusion Health App")
 st.write("""
-    Welcome to your all-in-one health and wellness platform. Track your health metrics, set goals, log your exercise, manage your menstrual cycle, and access health records – all in one place.
+   Welcome to your all-in-one health and wellness platform! Effortlessly track your health metrics, set goals, log exercises, manage your menstrual cycle, and access your health records – all at your fingertips.
 """)
 
 # Combine content based on selected tab
