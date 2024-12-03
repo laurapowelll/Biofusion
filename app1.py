@@ -137,7 +137,6 @@ elif app_mode == "🌸 Log Menstrual Cycle":
         - **Other Tips:** Manage mood changes by practicing mindfulness or journaling.
         """)
 
-
 # Fitness & Exercise Page
 elif app_mode == "Fitness & Exercise":
     st.subheader("Fitness & Exercise 🏋️‍♂️")
