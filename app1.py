@@ -43,11 +43,11 @@ app_mode = st.sidebar.selectbox("Choose a section", [
     "📜 Terms of Service and Privacy Policy", "💳 Pricing"
 ])
 
-# Add Pricing Model Section in Sidebar
-if app_mode == "💳 Pricing":
-    st.sidebar.subheader("Choose Your Plan 🌱")
-    
-    st.sidebar.markdown("""
+# Pricing Page Section - Added on the main page
+elif app_mode == "💳 Pricing":
+    st.subheader("Choose Your Plan 🌱")
+
+    st.markdown("""
     <div class="pricing">
         <h3>Pricing Options</h3>
         <div class="pricing-plan">
