@@ -38,14 +38,14 @@ st.title("🌱 **BiYourFusion Mobile Health App**")
 # Sidebar for navigation with emojis and options
 st.sidebar.title("🌐 Navigation")
 app_mode = st.sidebar.selectbox("Choose a section", [
-    "🏠 Home", "❓ Why BiYourFusion?", "📊 Log Health Metrics", "🌸 Log Menstrual Cycle", 
+    "💳 Membership Signup", "🏠 Home", "❓ Why BiYourFusion?", "📊 Log Health Metrics", "🌸 Log Menstrual Cycle", 
     "🏋️‍♂️ Fitness & Exercise", "📈 View Dashboard", "🎯 Set Goals", "📝 Health Records", "💉 Immunization Records", 
-    "📜 Terms of Service and Privacy Policy", "💳 Pricing"
+    "📜 Terms of Service and Privacy Policy"
 ])
 
 # Pricing Page Section - Added on the main page
 # Pricing Page Section - Added on the main page
-if app_mode == "💳 Pricing":
+if app_mode == "💳 Membership Signup":
     st.subheader("Choose Your Plan 🌱")
 
     st.markdown("""
