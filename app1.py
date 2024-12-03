@@ -111,57 +111,44 @@ elif app_mode == "🌸 Log Menstrual Cycle":
         - **Other Tips:** Use heating pads for cramps and prioritize hydration.
         """)
 
-# Fitness & Exercise Page
-elif app_mode == "Fitness & Exercise":
+# Fitness & Exercise Page with icons
+elif app_mode == "🏋️‍♂️ Fitness & Exercise":
     st.subheader("Fitness & Exercise 🏋️‍♂️")
 
     # Section 1: Log Exercises
-    st.write("### Log Your Exercises")
+    st.write("### Log Your Exercises 🏃")
     exercise_type = st.text_input("Type of Exercise (e.g., running, yoga, weightlifting)")
     duration = st.number_input("Duration (minutes)", min_value=0, step=1)
     calories_burned = st.number_input("Estimated Calories Burned", min_value=0, step=1)
 
     if st.button("Save Exercise"):
-        st.success("Exercise logged successfully!")
+        st.success("Exercise logged successfully! 💪")
         st.write(f"**Exercise Type:** {exercise_type}")
         st.write(f"**Duration:** {duration} minutes")
         st.write(f"**Calories Burned:** {calories_burned}")
-
-    # Section 2: Explore Trainer Tips
-    st.write("### Trainer Tips & Free Resources")
-    st.write("Access free workout videos and meditations:")
-    st.video("https://www.youtube.com/watch?v=example_workout_video")  # Replace with real URLs
-    st.video("https://www.youtube.com/watch?v=example_meditation_video")  # Replace with real URLs
-
-    # Section 3: Activity Trends
-    st.write("### Track Your Activity Trends")
+    
+    # Section 3: Activity Trends (bar chart)
+    st.write("### Track Your Activity Trends 📊")
     steps = st.slider("Steps Taken Today", 0, 20000, step=100)
     standing_time = st.slider("Standing Time (hours)", 0, 24, step=1)
     distance = st.slider("Distance Traveled (miles)", 0.0, 10.0, step=0.1)
 
-    # Display trends
-    st.write("### Activity Overview")
-    st.bar_chart({"Steps": steps, "Standing Hours": standing_time, "Distance (miles)": distance})
+    # Display trends using Streamlit's bar chart
+    activity_data = pd.DataFrame({
+        "Metric": ["Steps", "Standing Hours", "Distance (miles)"],
+        "Value": [steps, standing_time, distance]
+    })
+    st.bar_chart(activity_data.set_index("Metric"))
 
-    # Section 4: Custom Plans & Rewards
-    st.write("### Personalized Activity Plans")
+    # Section 4: Personalized Activity Plans
+    st.write("### Personalized Activity Plans 📅")
     custom_plan_name = st.text_input("Name Your Plan")
     weekly_goal = st.slider("Weekly Goal (hours)", 0, 20, step=1)
-    st.write("Earn badges for achieving milestones and stay motivated!")
-
+    
     if st.button("Create Plan"):
-        st.success(f"Your plan '{custom_plan_name}' has been created!")
+        st.success(f"Your plan '{custom_plan_name}' has been created! 🎯")
         st.write(f"**Weekly Goal:** {weekly_goal} hours")
-        st.write("Keep pushing towards your goal and collect rewards!")
-
-    # Section 5: Social Sharing
-    st.write("### Share Your Progress")
-    share_option = st.selectbox("Who would you like to share with?", ["Trainers", "Friends", "Both", "None"])
-    if share_option != "None":
-        st.write(f"Your progress will be shared with: {share_option}")
-    st.button("Share Now", key="share_progress")
-    """)
-
+        st.write("Keep pushing towards your goal!")
 
 # View Dashboard Page with line chart
 elif app_mode == "📈 View Dashboard":
