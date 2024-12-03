@@ -40,8 +40,30 @@ st.sidebar.title("🌐 Navigation")
 app_mode = st.sidebar.selectbox("Choose a section", [
     "🏠 Home", "❓ Why BiYourFusion?", "📊 Log Health Metrics", "🌸 Log Menstrual Cycle", 
     "🏋️‍♂️ Fitness & Exercise", "📈 View Dashboard", "🎯 Set Goals", "📝 Health Records", "💉 Immunization Records", 
-    "📜 Terms of Service and Privacy Policy"
+    "📜 Terms of Service and Privacy Policy", "💳 Pricing"
 ])
+
+# Add Pricing Model Section in Sidebar
+if app_mode == "💳 Pricing":
+    st.sidebar.subheader("Choose Your Plan 🌱")
+    
+    st.sidebar.markdown("""
+    <div class="pricing">
+        <h3>Pricing Options</h3>
+        <div class="pricing-plan">
+            <strong>Basic (Free)</strong>
+            <p>Core features like basic tracking and goal-setting</p>
+        </div>
+        <div class="pricing-plan">
+            <strong>Premium ($9.99/month or $99/year)</strong>
+            <p>Full access to all features: advanced tracking, meal tracking, menstrual cycle tracking, and more</p>
+        </div>
+        <div class="pricing-plan">
+            <strong>Family Plan ($19.99/month or $199/year)</strong>
+            <p>For multiple users in a household with separate accounts</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Date in Sidebar
 st.sidebar.write("### 📅 Current Date")
