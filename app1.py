@@ -34,7 +34,6 @@ st.markdown("""
 
 # Set up the app title and description with emojis
 st.title("🌱 **BiYourFusion Mobile Health App**")
-st.write("Welcome to your personal health and wellness management app. Track your daily health insights, set goals, monitor your progress, and store your health records.")
 
 # Sidebar for navigation with emojis and options
 st.sidebar.title("🌐 Navigation")
@@ -51,6 +50,7 @@ st.sidebar.write(date.today())
 # Home Page with tiles (showing quick health data)
 if app_mode == "🏠 Home":
     st.subheader("Welcome to your Health Dashboard")
+    st.write("Welcome to your personal health and wellness management app. Track your daily health insights, set goals, monitor your progress, and store your health records.")
     st.write("Use this app to log daily health metrics and track your progress over time.")
     
     # Create a row of tiles for key metrics (dummy values for now)
