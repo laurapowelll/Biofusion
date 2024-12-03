@@ -230,7 +230,7 @@ elif app_mode == "📝 Health Records":
         st.write(f"**Allergies:** {allergies}")
 
 # Immunization Records Page
-elif app_mode == "Immunization Records💉":
+elif app_mode == ""💉 Immunization Records":
     st.subheader("Store and View Immunization Records 💉")
     st.write("Keep a record of your immunizations for easy reference. You can log new immunizations and view your existing records.")
 
