@@ -38,7 +38,7 @@ st.title("🌱 **BiYourFusion Mobile Health App**")
 # Sidebar for navigation with emojis and options
 st.sidebar.title("🌐 Navigation")
 app_mode = st.sidebar.selectbox("Choose a section", [
-    "💳 Membership Signup", "🏠 Home", "❓ Why BiYourFusion?", "📊 Log Health Metrics", "🌸 Log Menstrual Cycle", 
+    "🏠 Home", "💳 Membership Signup", "❓ Why BiYourFusion?", "📊 Log Health Metrics", "🌸 Log Menstrual Cycle", 
     "🏋️‍♂️ Fitness & Exercise", "📈 View Dashboard", "🎯 Set Goals", "📝 Health Records", "💉 Immunization Records", 
     "📜 Terms of Service and Privacy Policy"
 ])
