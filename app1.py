@@ -44,7 +44,7 @@ app_mode = st.sidebar.selectbox("Choose a section", [
 ])
 
 # Pricing Page Section - Added on the main page
-elif app_mode == "💳 Pricing":
+if app_mode == "💳 Pricing":
     st.subheader("Choose Your Plan 🌱")
 
     st.markdown("""
