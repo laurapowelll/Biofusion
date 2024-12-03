@@ -44,6 +44,7 @@ app_mode = st.sidebar.selectbox("Choose a section", [
 ])
 
 # Pricing Page Section - Added on the main page
+# Pricing Page Section - Added on the main page
 if app_mode == "💳 Pricing":
     st.subheader("Choose Your Plan 🌱")
 
@@ -63,7 +64,8 @@ if app_mode == "💳 Pricing":
             <p>For multiple users in a household with separate accounts</p>
         </div>
     </div>
-    
+    """, unsafe_allow_html=True)
+
     st.write("### Payment Options")
 
     # Payment method selection
@@ -103,8 +105,13 @@ if app_mode == "💳 Pricing":
                         st.write(f"**Apple Pay Email**: {apple_pay_email}")
                 else:
                     st.error("Please fill in all required fields.")
+        
+    st.markdown("""
+    <div style="text-align:center; padding: 20px; font-size: 14px;">
+        🌱 **BiYourFusion** - A holistic approach to health management! Stay healthy, stay happy! 😊
+    </div>
     """, unsafe_allow_html=True)
-
+    
 # Date in Sidebar
 st.sidebar.write("### 📅 Current Date")
 st.sidebar.write(date.today())
