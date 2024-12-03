@@ -63,6 +63,46 @@ if app_mode == "💳 Pricing":
             <p>For multiple users in a household with separate accounts</p>
         </div>
     </div>
+    
+    st.write("### Payment Options")
+
+    # Payment method selection
+    payment_method = st.radio("Select your payment method", ["Credit Card", "PayPal", "Apple Pay"])
+
+    # Create a "Buy Now" button
+    if st.button("Buy Now"):
+        st.write("### Enter Your Details")
+
+        # Payment form with user details
+        with st.form("payment_form"):
+            name = st.text_input("Full Name")
+            email = st.text_input("Email Address")
+            
+            if payment_method == "Credit Card":
+                card_number = st.text_input("Card Number", type="password")
+                expiration_date = st.text_input("Expiration Date (MM/YY)")
+                cvv = st.text_input("CVV", type="password")
+            elif payment_method == "PayPal":
+                paypal_email = st.text_input("PayPal Email Address")
+            elif payment_method == "Apple Pay":
+                apple_pay_email = st.text_input("Apple Pay Email Address")
+            
+            submit_button = st.form_submit_button("Complete Payment")
+            
+            if submit_button:
+                if name and email:
+                    st.success(f"Payment successfully processed for {payment_method}!\nThank you, {name}!")
+                    # Show payment confirmation message
+                    st.write(f"**Plan**: {payment_method}")
+                    st.write(f"**Email**: {email}")
+                    if payment_method == "Credit Card":
+                        st.write(f"**Card Number**: {card_number[-4:]}")  # Mask card number except last 4 digits
+                    elif payment_method == "PayPal":
+                        st.write(f"**PayPal Email**: {paypal_email}")
+                    elif payment_method == "Apple Pay":
+                        st.write(f"**Apple Pay Email**: {apple_pay_email}")
+                else:
+                    st.error("Please fill in all required fields.")
     """, unsafe_allow_html=True)
 
 # Date in Sidebar
