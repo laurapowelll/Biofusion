@@ -229,18 +229,30 @@ elif app_mode == "📝 Health Records":
         st.write(f"**Health Conditions:** {conditions}")
         st.write(f"**Allergies:** {allergies}")
 
-# Immunization Records Page with icons
-elif app_mode == "💉 Immunization Records":
-    st.subheader("Log Immunization Records 💉")
-    vaccine_name = st.text_input("Vaccine Name", placeholder="e.g., COVID-19, Flu")
-    date_received = st.date_input("Date of Immunization", max_value=date.today())
-    next_dose = st.date_input("Next Dose (if applicable)", min_value=date_received)
-    
+# Immunization Records Page
+elif app_mode == "Immunization Records💉":
+    st.subheader("Store and View Immunization Records 💉")
+    st.write("Keep a record of your immunizations for easy reference. You can log new immunizations and view your existing records.")
+
+    # Input fields for logging immunizations
+    st.write("### Add a New Immunization Record")
+    vaccine_name = st.text_input("Vaccine Name", placeholder="e.g., Influenza, COVID-19")
+    date_received = st.date_input("Date Received")
+    provider_name = st.text_input("Healthcare Provider", placeholder="e.g., Clinic or Doctor's Name")
+    additional_notes = st.text_area("Additional Notes (Optional)", placeholder="e.g., Any side effects or remarks")
+
     if st.button("Save Immunization Record"):
-        st.success("Immunization record saved successfully! 💉")
-        st.write(f"**Vaccine Name:** {vaccine_name}")
-        st.write(f"**Date Received:** {date_received}")
-        st.write(f"**Next Dose:** {next_dose}")
+        st.success(f"Immunization record for {vaccine_name} saved successfully!")
+
+    # Example of displaying stored records (you would replace this with actual data retrieval logic)
+    st.write("### Your Immunization Records")
+    sample_records = pd.DataFrame({
+        "Vaccine Name": ["Influenza", "COVID-19 Booster"],
+        "Date Received": ["2023-10-10", "2024-01-15"],
+        "Healthcare Provider": ["City Health Clinic", "County Hospital"],
+        "Notes": ["No side effects", "Mild fever after injection"]
+    })
+    st.table(sample_records)
 
 # Terms of Service and Privacy Policy Page with emoji
 elif app_mode == "📜 Terms of Service and Privacy Policy":
