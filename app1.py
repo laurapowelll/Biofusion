@@ -181,11 +181,14 @@ elif app_mode == "Fitness & Exercise":
         st.success(f"Your {exercise_type} workout has been saved!")
         st.write(f"Duration: {duration} minutes, Calories Burned: {calories_burned} kcal")
 
-    # Exercise Trend Graphs
-    st.write("### View Exercise Trends")
-    df = pd.DataFrame({
-        "Date": [date.today()],
-        "Calories Burned": [calories_burned],
-        "Exercise Duration (min)": [duration]
-    })
-    st.line_chart(df.set
+   # Exercise Trend Graphs
+st.write("### View Exercise Trends")
+df = pd.DataFrame({
+    "Date": [date.today()],
+    "Calories Burned": [calories_burned],
+    "Exercise Duration (min)": [duration]
+})
+
+# Properly closing the parentheses for line_chart function
+st.line_chart(df.set_index("Date"))
+
