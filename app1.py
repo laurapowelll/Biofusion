@@ -160,6 +160,7 @@ elif app_mode == "Fitness & Exercise":
     if share_option != "None":
         st.write(f"Your progress will be shared with: {share_option}")
     st.button("Share Now", key="share_progress")
+    """)
 
 
 # View Dashboard Page with line chart
