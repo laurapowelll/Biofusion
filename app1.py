@@ -152,6 +152,7 @@ elif tabs == "Log Health Metrics":
         st.success("Health metrics logged successfully!", icon="✅")
 
 # Log Menstrual Cycle
+# Log Menstrual Cycle
 elif tabs == "Log Menstrual Cycle":
     st.subheader("Log Menstrual Cycle 🌸")
     cycle_start = st.date_input("Start Date")
@@ -167,4 +168,7 @@ elif tabs == "Log Menstrual Cycle":
     ])
     contraceptive_notes = st.text_area("Additional Notes on Contraceptive Use (if any)")
     
-    if st.button("Save Cycle Data", key
+    # Fixing the incomplete st.button() statement
+    if st.button("Save Cycle Data", key="log_cycle"):
+        st.success("Cycle data saved successfully!", icon="✅")
+
