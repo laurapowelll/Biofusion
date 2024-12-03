@@ -254,17 +254,23 @@ elif app_mode == "💉 Immunization Records":
     })
     st.table(sample_records)
 
-# Terms of Service and Privacy Policy Page with emoji
-elif app_mode == "📜 Terms of Service and Privacy Policy":
-    st.subheader("Terms of Service and Privacy Policy 📜")
+# Terms of Service and Privacy Policy
+elif app_mode == "Terms of Service and Privacy Policy":
+    st.subheader("Terms of Service 📜")
     st.write("""
-    **Privacy Policy:**
-    - Your health data is confidential and not shared without your consent.
-    - You can delete your account at any time, and your data will be permanently removed.
+    By using this app, you agree to abide by the terms and conditions outlined below. These terms govern your use of the application and the services provided.
+    """)
 
-    **Terms of Service:**
-    - By using this app, you agree to our terms and conditions.
-    - We are not responsible for any medical advice, diagnosis, or treatment.
+    st.subheader("Privacy Policy 🔒")
+    st.write("""
+    **Your privacy matters to us.**
+    
+    We are committed to protecting your personal information and ensuring that it is handled securely. Here’s how we safeguard your data:
+    - **Data Transparency:** You own your data, and we provide clear explanations about how it is used.
+    - **Security Measures:** Your information is stored securely and encrypted to prevent unauthorized access.
+    - **No Unauthorized Sharing:** We do not sell or share your data with third parties without your consent.
+    
+    For more details, please review our comprehensive [Privacy Policy](#).
     """)
 
 # Add a footer with friendly reminder
