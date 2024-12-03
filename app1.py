@@ -110,7 +110,7 @@ elif app_mode == "🌸 Log Menstrual Cycle":
         - **Exercises to Try:** Light yoga, walking, or stretching.
         - **Other Tips:** Use heating pads for cramps and prioritize hydration.
         """)
- elif phase == "Follicular Phase":
+    elif phase == "Follicular Phase":
         st.write("""
         **Tips during the follicular phase:**
         - **Foods to Indulge In:** Protein-rich foods (eggs, chicken, fish), healthy fats (avocado, nuts).
