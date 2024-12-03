@@ -108,7 +108,6 @@ if app_mode == "💳 Pricing":
         
     st.markdown("""
     <div style="text-align:center; padding: 20px; font-size: 14px;">
-        🌱 **BiYourFusion** - A holistic approach to health management! Stay healthy, stay happy! 😊
     </div>
     """, unsafe_allow_html=True)
     
