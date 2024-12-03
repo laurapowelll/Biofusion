@@ -60,6 +60,31 @@ if app_mode == "🏠 Home":
     <div class="tile">💤 Sleep: 7 hrs</div>
     """, unsafe_allow_html=True)
 
+
+# Why BiYourFusion Page with more details
+elif app_mode == "❓ Why BiYourFusion?":
+    st.subheader("Why Choose BiYourFusion? 🌱")
+
+    st.write("""
+    **BiYourFusion** is a comprehensive health and wellness platform designed to empower individuals on their wellness journey. Whether you're trying to lose weight, gain muscle, track menstrual cycles, or monitor your overall health, our app has everything you need in one place!
+
+    Here’s why **BiYourFusion** stands out:
+    
+    🌟 **Holistic Health Tracking**: BiYourFusion integrates various aspects of your health – from physical fitness and exercise, to menstrual health, sleep patterns, water intake, and more.
+    
+    🧘 **Personalized Recommendations**: The app offers personalized tips, whether it’s food, exercise, or wellness practices based on your tracked data. It adapts to your specific needs as your health and goals evolve.
+    
+    🎯 **Goal Setting & Tracking**: Set realistic health goals, track your progress, and stay motivated with visual dashboards and personalized activity plans. You can even create and adjust your fitness and wellness goals on the go!
+    
+    🩺 **Medical Records Management**: BiYourFusion helps you manage your health records, immunization history, and other personal medical data securely, ensuring that you have everything you need at your fingertips when visiting your healthcare provider.
+
+    💡 **Simple & Easy to Use**: Our intuitive design and user-friendly interface ensure that you can track your health metrics and see your progress effortlessly. Whether you're a beginner or a seasoned health enthusiast, our app is for everyone!
+
+    🔒 **Data Privacy**: We take your privacy seriously. Your health data is confidential and will never be shared without your consent.
+    """)
+
+    st.write("Get started with BiYourFusion today and take control of your health! 🌱")
+    
 # Log Health Metrics Page with icons and styles
 elif app_mode == "📊 Log Health Metrics":
     st.subheader("Log Daily Health Metrics 🩺")
