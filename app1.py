@@ -110,6 +110,33 @@ elif app_mode == "🌸 Log Menstrual Cycle":
         - **Exercises to Try:** Light yoga, walking, or stretching.
         - **Other Tips:** Use heating pads for cramps and prioritize hydration.
         """)
+ elif phase == "Follicular Phase":
+        st.write("""
+        **Tips during the follicular phase:**
+        - **Foods to Indulge In:** Protein-rich foods (eggs, chicken, fish), healthy fats (avocado, nuts).
+        - **Foods to Avoid:** High-sugar snacks and refined carbs.
+        - **Exercises to Try:** Cardio, weight training, or high-energy activities.
+        - **Other Tips:** This is the best time to focus on productivity and creative projects.
+        """)
+
+    elif phase == "Ovulation Phase":
+        st.write("""
+        **Tips during ovulation:**
+        - **Foods to Indulge In:** Antioxidant-rich foods (berries, leafy greens), hydration-focused foods (watermelon, cucumber).
+        - **Foods to Avoid:** Inflammatory foods (fried or overly salty foods).
+        - **Exercises to Try:** High-intensity interval training (HIIT), running, or dancing.
+        - **Other Tips:** Socialize and take advantage of peak energy and confidence.
+        """)
+
+    elif phase == "Luteal Phase":
+        st.write("""
+        **Tips during the luteal phase:**
+        - **Foods to Indulge In:** Complex carbs (sweet potatoes, quinoa), omega-3-rich foods (salmon, flaxseed).
+        - **Foods to Avoid:** Excess sodium and caffeine to reduce bloating.
+        - **Exercises to Try:** Pilates, moderate-intensity workouts, or swimming.
+        - **Other Tips:** Manage mood changes by practicing mindfulness or journaling.
+        """)
+
 
 # Fitness & Exercise Page with icons
 elif app_mode == "🏋️‍♂️ Fitness & Exercise":
