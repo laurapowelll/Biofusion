@@ -52,7 +52,7 @@ if app_mode == "💳 Membership Signup":
     <div class="pricing">
         <h3>Pricing Options</h3>
         <div class="pricing-plan">
-            <strong>Basic (Free)</strong>
+            <strong>Basic (Free - Current Selection)</strong>
             <p>Core features like basic tracking and goal-setting</p>
         </div>
         <div class="pricing-plan">
