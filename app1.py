@@ -138,7 +138,7 @@ elif app_mode == "🌸 Log Menstrual Cycle":
         """)
 
 # Fitness & Exercise Page
-elif app_mode == "Fitness & Exercise":
+elif app_mode == "🏋️‍♂️ Fitness & Exercise":
     st.subheader("Fitness & Exercise 🏋️‍♂️")
 
     # Section 1: Log Exercises
