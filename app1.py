@@ -52,10 +52,19 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Sidebar navigation
+# Sidebar for navigation with icons and emojis for each section
 st.sidebar.title("🌐 Navigation")
-tabs = st.sidebar.radio("Select a Tab:", [
-    "🥗 Diet", "🏋️ Exercise", "🧘 Wellness", "💖 Health", "Log Health Metrics", "Log Menstrual Cycle", 
-    "Fitness & Exercise", "View Dashboard", "Set Goals", "Health Records", "Immunization Records", "Terms of Service and Privacy Policy"
+app_mode = st.sidebar.selectbox("Choose a section", [
+    "🏠 Home", 
+    "🌟 WhyBiyourFusion", 
+    "🩺 Log Health Metrics", 
+    "🌸 Log Menstrual Cycle", 
+    "🏋️‍♂️ Fitness & Exercise", 
+    "📊 View Dashboard", 
+    "🎯 Set Goals", 
+    "📋 Health Records", 
+    "💉 Immunization Records", 
+    "📜 Terms of Service and Privacy Policy"
 ])
 
 # Date in Sidebar
